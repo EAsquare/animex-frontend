@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import styled from "styled-components";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import { ThemeContext } from "../theme/ThemeContext";
 
-function App() {
+export default function App() {
+  const { toggleTheme, theme } = useContext(ThemeContext);
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
+    <AppWrapper>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -24,11 +27,20 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
+      <div className="card">
+        <button
+          onClick={() => toggleTheme(theme === "light" ? "dark" : "light")}
+        >
+          toggle theme
+        </button>
+      </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </div>
+    </AppWrapper>
   );
 }
 
-export default App;
+const AppWrapper = styled.div`
+  background-color: ${({ theme }) => theme.background};
+`;
