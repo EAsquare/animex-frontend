@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Hello Vite + Reacts!</p>
+        <p>Hello Vite + React!</p>
         <p>
           <button type="button" onClick={increment}>
             count is: {count}
