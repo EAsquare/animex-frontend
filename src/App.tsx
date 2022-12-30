@@ -12,9 +12,9 @@ export default function App() {
       <button type="button" onClick={increment}>
         count is: {count}
       </button>
-      <button onClick={() => toggleTheme(theme === "light" ? "dark" : "light")}>
+      <div onClick={() => toggleTheme(theme === "light" ? "dark" : "light")}>
         toggle theme
-      </button>
+      </div>
     </AppWrapper>
   );
 }

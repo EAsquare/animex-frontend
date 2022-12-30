@@ -2,6 +2,10 @@
 import { cleanup, render } from "@testing-library/react";
 import { afterEach } from "vitest";
 
+import { darkTheme, lightTheme } from "../../theme/appTheme";
+import { ThemeProvider } from "styled-components";
+import { ThemeContext } from "../../theme/ThemeContext";
+
 afterEach(() => {
   cleanup();
 });
@@ -9,7 +13,9 @@ afterEach(() => {
 const customRender = (ui: React.ReactElement, options = {}) =>
   render(ui, {
     // wrap provider(s) here if needed
-    wrapper: ({ children }) => children,
+    wrapper: ({ children }) => (
+      <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>
+    ),
     ...options,
   });
 
