@@ -1,11 +1,23 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     /* BODY */
     body {
       background: ${(props) => props.theme.background};
       color: ${(props) => props.theme.primary};
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
+    code {
+      font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+    }
+
 
     /*=================================================================================================
       SCROLL BAR
@@ -29,9 +41,8 @@ const GlobalStyle = createGlobalStyle`
       height: 1rem;
     }
     body ::-webkit-scrollbar-thumb {
-      background-image: linear-gradient(${(props) =>
-        props.theme.sidebarBackground}, ${(props) =>
-  props.theme.alternateBackground});
+      background-image: linear-gradient(${(props) => props.theme.sidebarBackground}, ${(props) =>
+	props.theme.alternateBackground});
     }
     body ::-webkit-scrollbar-thumb:hover {
       background-color: ${(props) => props.theme.hoverColor};
