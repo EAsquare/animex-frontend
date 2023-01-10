@@ -1,15 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import GlobalStyle from "../theme/global";
 import { AppThemeProvider } from "../theme/ThemeContext";
 import App from "./App";
 import "./index.css";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false, // default: true
+    },
+  },
+});
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <AppThemeProvider>
-      <GlobalStyle />
-      <App />
-    </AppThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <AppThemeProvider>
+        <GlobalStyle />
+        <App />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </AppThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

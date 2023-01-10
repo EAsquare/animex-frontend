@@ -1,5 +1,5 @@
-import { useCounter } from "./hooks/useCounter";
 import styled from "styled-components";
+import { useCounter } from "./hooks/useCounter";
 import { ThemeContext } from "../theme/ThemeContext";
 import { useContext } from "react";
 
